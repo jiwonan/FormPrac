@@ -12,9 +12,36 @@ namespace FormPrac
 {
     public partial class Form1 : Form
     {
+        public class CustomForm:Form
+        {
+            public CustomForm()
+            {
+                this.Text = "내가 만든 폼!";
+            }
+        }
         public Form1()
         {
             InitializeComponent();
+            IsMdiContainer = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CustomForm form = new CustomForm();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CustomForm cf = new CustomForm();
+            cf.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.ShowDialog();
         }
     }
 }
